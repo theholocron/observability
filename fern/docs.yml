@@ -1,0 +1,94 @@
+# yaml-language-server: $schema=https://schema.buildwithfern.dev/docs-yml.json
+
+instances:
+  - url: holocron.docs.buildwithfern.com/node-template
+    custom-domain: wiki.theholocron.dev/node-template
+    multi-source: true
+    edit-this-page:
+      github:
+        owner: theholocron
+        repo: node-template
+        branch: main
+
+title: node-template Engineering
+
+layout:
+  page-width: full
+  tabs-placement: header
+  searchbar-placement: header
+
+tabs:
+  decisions:
+    display-name: Decisions
+    icon: fa-duotone fa-scale-balanced
+  standards:
+    display-name: Standards
+    icon: fa-duotone fa-book
+  specifications:
+    display-name: Specifications
+    icon: fa-duotone fa-file-lines
+
+navigation:
+  - tab: decisions
+    layout:
+      - section: Architecture Decision Records
+        contents:
+          - page: Index
+            path: ../docs/wiki/decisions/README.md
+  - tab: standards
+    layout:
+      - section: Standards
+        contents:
+          - page: Overview
+            path: ../docs/wiki/standards/README.md
+  - tab: specifications
+    layout:
+      - section: Specifications
+        contents:
+          - page: Overview
+            path: ../docs/wiki/specifications/README.md
+
+navbar-links:
+  - type: github
+    value: https://github.com/theholocron/node-template
+  - type: dropdown
+    text: Other Projects
+    icon: fa-duotone fa-book
+    links:
+      - href: https://wiki.theholocron.dev
+        text: Cli Template
+      - href: https://wiki.theholocron.dev
+        text: Clients
+      - href: https://wiki.theholocron.dev
+        text: Configs
+      - href: https://wiki.theholocron.dev
+        text: Holocron
+      - href: https://wiki.theholocron.dev/internal
+        text: Internal
+      - href: https://wiki.theholocron.dev
+        text: Monorepo Nextjs Template
+      - href: https://wiki.theholocron.dev
+        text: Monorepo React Template
+      - href: https://wiki.theholocron.dev
+        text: Monorepo Template
+      - href: https://wiki.theholocron.dev
+        text: Nextjs Template
+      - href: https://wiki.theholocron.dev
+        text: React Template
+      - href: https://wiki.theholocron.dev
+        text: Skills
+      - href: https://wiki.theholocron.dev
+        text: Themes
+      - href: https://wiki.theholocron.dev
+        text: Utils
+
+colors:
+  accent-primary:
+    dark: "#70E155"
+    light: "#008700"
+
+logo:
+  height: 20
+
+metadata:
+  og:dynamic: true
