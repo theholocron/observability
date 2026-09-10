@@ -1,37 +1,19 @@
 import { defineConfig } from "@theholocron/cli";
-import { compose, nodeDocs, wikiCapability as wiki } from "@theholocron/holocron-config";
+import { node } from "@theholocron/holocron-config";
 
-const { repo, workflows, providers, org, domain, docs } = compose(nodeDocs(), wiki());
+const { repo, workflows, providers } = node();
 export default defineConfig({
-	description:
-		"A modern NodeJS template with pre-configured tools, best practices, and CI/CD setup for rapid project development.",
-	homepage: "https://docs.theholocron.dev/node-template/",
-	org,
-	domain,
-	docs,
+	description: "Holocron observability library — Logger, ErrorSink and AnalyticsSink adapter interfaces with Pino, Sentry and PostHog behind them",
+	homepage: "https://docs.theholocron.dev/observability/",
 	repo: {
-		name: "theholocron/node-template",
+		name: "theholocron/observability",
 		teams: [{ slug: "gatekeepers", permission: "maintain" }],
-		topics: ["nodejs", "template", "typescript", "library"],
+		topics: ["typescript","observability","logging","telemetry","sentry","posthog","pino","theholocron"],
 		...repo,
-		requiredChecks: [...repo.requiredChecks, "audit / Audit the bundle size"],
-		properties: {
-			...repo.properties,
-			uses_external_packages: false,
-		},
+		properties: { ...repo.properties, runtime_environment: "universal" },
 	},
-	workflows: [
-		...workflows,
-		{ name: "audit", with: { "run-knip": true } },
-		{ name: "release", with: { "run-build": true } },
-		"sync",
-		{ name: "deploy", with: { type: "docs", name: "node-template" }, paths: ["docs/**"] },
-	],
-	providers: {
-		...providers,
-		secrets: "github",
-		wiki: ["fern", { domain: "wiki.theholocron.dev", fernOrg: "holocron", icon: "fa-duotone fa-copy" }],
-	},
+	workflows,
+	providers,
 	agent: "claude",
-	skills: ["git-safety", "pr-workflow", "commit-standards", "security-review"],
+	skills: ["git-safety","pr-workflow","commit-standards","security-review"],
 });

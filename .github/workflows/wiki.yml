@@ -33,5 +33,5 @@ jobs:
       preview: true
       preview-id: pr-${{ github.event.pull_request.number }}
       fern-org: holocron
-      base-path: node-template
+      base-path: observability
     secrets: inherit

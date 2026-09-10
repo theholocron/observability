@@ -1,43 +1,19 @@
-# `@theholocron/node-template`
+# `@theholocron/observability`
 
 <!-- holocron:description -->
-
-A modern NodeJS template with pre-configured tools, best practices, and CI/CD setup for rapid project development.
-
+Holocron observability library — Logger, ErrorSink and AnalyticsSink adapter interfaces with Pino, Sentry and PostHog behind them
 <!-- /holocron:description -->
-
-<!-- holocron:template-only -->
-
-## Getting Started
-
-Use the [Holocron CLI](https://github.com/theholocron/holocron) to scaffold a new repo. It clones the template, renames all placeholder references, and runs `holocron setup` in one step:
-
-```bash
-npx @theholocron/cli new node my-library \
-  --description "My library description" \
-  --homepage "https://my-library.example.com" \
-  --agent claude
-```
-
-This will:
-
-1. Create `theholocron/my-library` from this template on GitHub
-2. Replace all `node-template` references with `my-library` throughout the repo
-3. Run `pnpm install`
-4. Run `holocron setup` to configure branch protection, labels, workflows, and repo settings
-
-<!-- /holocron:template-only -->
 
 ## Installation
 
 ```bash
-pnpm install --save-dev @theholocron/node-template
+pnpm install --save-dev @theholocron/observability
 ```
 
 ## Usage
 
 ```typescript
-import { doSomething, type SomethingOptions } from "@theholocron/node-template";
+import { doSomething, type SomethingOptions } from "@theholocron/observability";
 
 function App(options: SomethingOptions) {
   return doSomething(options);

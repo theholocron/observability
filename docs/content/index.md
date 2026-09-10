@@ -1,11 +1,11 @@
 ---
-title: Node Template
+title: Observability
 description: A modern Node.js library starter template with pre-configured tools, best practices, and CI/CD setup.
 sidebar:
   hidden: true
 ---
 
-`@theholocron/node-template` is an opinionated starter for Node.js libraries. It ships with a full development, testing, and release pipeline ready to go.
+`@theholocron/observability` is an opinionated starter for Node.js libraries. It ships with a full development, testing, and release pipeline ready to go.
 
 ## What's Included
 

@@ -17,7 +17,7 @@ npx @theholocron/cli new node my-library \
 This will:
 
 1. Create `theholocron/my-library` from this template on GitHub
-2. Replace all `node-template` references with `my-library` throughout the repo
+2. Replace all `observability` references with `my-library` throughout the repo
 3. Run `pnpm install`
 4. Run `holocron setup` to configure branch protection, labels, workflows, and repo settings
 
@@ -26,7 +26,7 @@ This will:
 If you prefer to set things up yourself:
 
 ```bash
-git clone https://github.com/theholocron/node-template.git my-library
+git clone https://github.com/theholocron/observability.git my-library
 cd my-library
 pnpm install
 ```
