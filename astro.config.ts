@@ -4,8 +4,8 @@ import { docsTheme } from "@theholocron/docs-theme";
 
 export default defineConfig({
 	docs: {
-		name: "Node Template",
-		github: "node-template",
+		name: "Observability",
+		github: "observability",
 		sidebar: [
 			{ label: "Overview", slug: "" },
 			{

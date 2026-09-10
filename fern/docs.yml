@@ -1,16 +1,16 @@
 # yaml-language-server: $schema=https://schema.buildwithfern.dev/docs-yml.json
 
 instances:
-  - url: holocron.docs.buildwithfern.com/node-template
-    custom-domain: wiki.theholocron.dev/node-template
+  - url: holocron.docs.buildwithfern.com/observability
+    custom-domain: wiki.theholocron.dev/observability
     multi-source: true
     edit-this-page:
       github:
         owner: theholocron
-        repo: node-template
+        repo: observability
         branch: main
 
-title: node-template Engineering
+title: observability Engineering
 
 layout:
   page-width: full
@@ -50,7 +50,7 @@ navigation:
 
 navbar-links:
   - type: github
-    value: https://github.com/theholocron/node-template
+    value: https://github.com/theholocron/observability
   - type: dropdown
     text: Other Projects
     icon: fa-duotone fa-book

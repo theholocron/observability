@@ -1,5 +1,5 @@
 {
-  "name": "node-template",
+  "name": "observability",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
   "postCreateCommand": "corepack enable && pnpm install",
   "customizations": {

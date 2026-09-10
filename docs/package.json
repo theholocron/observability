@@ -1,5 +1,5 @@
 {
-  "name": "@theholocron/node-template-site",
+  "name": "@theholocron/observability-site",
   "version": "0.0.0",
   "private": true,
   "scripts": {
