@@ -3,8 +3,7 @@ import { node } from "@theholocron/holocron-config";
 
 const { repo, workflows, providers } = node();
 export default defineConfig({
-	description:
-		"Holocron observability library — Logger, ErrorSink and AnalyticsSink adapter interfaces with Pino, Sentry and PostHog behind them",
+	description: "Logging, error tracking, and analytics — one interface, swappable backends.",
 	homepage: "https://docs.theholocron.dev/observability/",
 	repo: {
 		name: "theholocron/observability",
