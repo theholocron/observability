@@ -100,3 +100,7 @@ test-report.junit.xml
 # managed by holocron setup — prompts
 /.agents/prompts/
 # end managed by holocron setup — prompts
+
+# astro type-gen output
+/.astro/
+/dist/
