@@ -3,15 +3,21 @@
   "version": "1.7.0",
   "description": "Holocron observability library — Logger, ErrorSink and AnalyticsSink adapter interfaces with Pino, Sentry and PostHog behind them",
   "keywords": [
-    "nodejs",
-    "template",
-    "typescript",
-    "library"
+    "observability",
+    "telemetry",
+    "logging",
+    "logger",
+    "pino",
+    "sentry",
+    "posthog",
+    "structured-logging",
+    "theholocron",
+    "typescript"
   ],
   "homepage": "https://docs.theholocron.dev/observability/",
   "bugs": "https://github.com/theholocron/observability/issues",
   "repository": "theholocron/observability",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "author": "Newton Koumantzelis",
   "sideEffects": false,
   "type": "module",
@@ -20,6 +26,26 @@
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs",
       "default": "./dist/index.mjs"
+    },
+    "./core": {
+      "types": "./dist/core.d.mts",
+      "import": "./dist/core.mjs",
+      "default": "./dist/core.mjs"
+    },
+    "./logger": {
+      "types": "./dist/logger.d.mts",
+      "import": "./dist/logger.mjs",
+      "default": "./dist/logger.mjs"
+    },
+    "./errors": {
+      "types": "./dist/errors.d.mts",
+      "import": "./dist/errors.mjs",
+      "default": "./dist/errors.mjs"
+    },
+    "./analytics": {
+      "types": "./dist/analytics.d.mts",
+      "import": "./dist/analytics.mjs",
+      "default": "./dist/analytics.mjs"
     }
   },
   "files": [
@@ -37,6 +63,7 @@
   },
   "devDependencies": {
     "@astrojs/starlight": "catalog:",
+    "@axiomhq/pino": "catalog:",
     "@commitlint/cli": "catalog:",
     "@commitlint/types": "catalog:",
     "@eslint/js": "catalog:",
@@ -44,6 +71,7 @@
     "@semantic-release/exec": "catalog:",
     "@semantic-release/git": "catalog:",
     "@semantic-release/github": "catalog:",
+    "@sentry/node": "catalog:",
     "@theholocron/astro-config": "catalog:configs",
     "@theholocron/cli": "catalog:holocron",
     "@theholocron/commitlint-config": "catalog:configs",
@@ -69,6 +97,9 @@
     "husky": "catalog:",
     "knip": "catalog:",
     "lint-staged": "catalog:",
+    "pino": "catalog:",
+    "pino-pretty": "catalog:",
+    "posthog-node": "catalog:",
     "prettier": "catalog:",
     "semantic-release": "catalog:",
     "sort-package-json": "catalog:",
@@ -76,6 +107,30 @@
     "typescript": "catalog:",
     "typescript-eslint": "catalog:",
     "vitest": "catalog:"
+  },
+  "peerDependencies": {
+    "@axiomhq/pino": ">=2",
+    "@sentry/node": ">=10",
+    "pino": ">=10",
+    "pino-pretty": ">=13",
+    "posthog-node": ">=5"
+  },
+  "peerDependenciesMeta": {
+    "@axiomhq/pino": {
+      "optional": true
+    },
+    "@sentry/node": {
+      "optional": true
+    },
+    "pino": {
+      "optional": true
+    },
+    "pino-pretty": {
+      "optional": true
+    },
+    "posthog-node": {
+      "optional": true
+    }
   },
   "packageManager": "pnpm@10.33.0",
   "engines": {

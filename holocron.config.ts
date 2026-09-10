@@ -3,17 +3,18 @@ import { node } from "@theholocron/holocron-config";
 
 const { repo, workflows, providers } = node();
 export default defineConfig({
-	description: "Holocron observability library — Logger, ErrorSink and AnalyticsSink adapter interfaces with Pino, Sentry and PostHog behind them",
+	description:
+		"Holocron observability library — Logger, ErrorSink and AnalyticsSink adapter interfaces with Pino, Sentry and PostHog behind them",
 	homepage: "https://docs.theholocron.dev/observability/",
 	repo: {
 		name: "theholocron/observability",
 		teams: [{ slug: "gatekeepers", permission: "maintain" }],
-		topics: ["typescript","observability","logging","telemetry","sentry","posthog","pino","theholocron"],
+		topics: ["typescript", "observability", "logging", "telemetry", "sentry", "posthog", "pino", "theholocron"],
 		...repo,
 		properties: { ...repo.properties, runtime_environment: "universal" },
 	},
 	workflows,
 	providers,
 	agent: "claude",
-	skills: ["git-safety","pr-workflow","commit-standards","security-review"],
+	skills: ["git-safety", "pr-workflow", "commit-standards", "security-review"],
 });

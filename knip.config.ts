@@ -3,7 +3,9 @@ import type { KnipConfig } from "knip";
 const config: KnipConfig = {
 	workspaces: {
 		".": {
-			// src/index.ts, commitlint.config.ts, vitest.config.ts auto-detected by Knip plugins
+			// subpath entries (src/core.ts, /logger.ts, /errors.ts, /analytics.ts,
+			// /index.ts) are discovered from the package.json `exports` map;
+			// commitlint.config.ts / vitest.config.ts by Knip plugins
 			entry: ["holocron.config.ts", "src/**/*.test.ts"],
 			project: ["src/**/*.ts", "*.config.ts"],
 			// astro.config.ts is the docs build config, not an Astro workspace — disable plugin
@@ -27,6 +29,10 @@ const config: KnipConfig = {
 		"@theholocron/skills",
 		// binary tools — invoked via CLI or hooks, not module imports
 		"sort-package-json",
+		// Pino transport targets referenced as strings in transports.ts
+		// (`target: "@axiomhq/pino"` / `"pino-pretty"`), never statically imported
+		"@axiomhq/pino",
+		"pino-pretty",
 	],
 	ignoreExportsUsedInFile: true,
 };

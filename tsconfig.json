@@ -5,19 +5,10 @@
     "baseUrl": "./",
     "outDir": "./dist",
     "paths": {
-      "@/package": [
-        "./package.json"
-      ],
-      "@/*": [
-        "./src/*"
-      ]
+      "@/package": ["./package.json"],
+      "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
