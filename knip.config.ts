@@ -29,6 +29,8 @@ const config: KnipConfig = {
 		"@theholocron/skills",
 		// binary tools — invoked via CLI or hooks, not module imports
 		"sort-package-json",
+		// used by Astro's React integration — Knip can't trace the dynamic import
+		"@astrojs/react",
 		// Pino transport targets referenced as strings in transports.ts
 		// (`target: "@axiomhq/pino"` / `"pino-pretty"`), never statically imported
 		"@axiomhq/pino",
