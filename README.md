@@ -3,6 +3,7 @@
 <!-- holocron:description -->
 
 Logging, error tracking, and analytics — one interface, swappable backends.
+
 <!-- /holocron:description -->
 
 <!-- holocron:installation -->
