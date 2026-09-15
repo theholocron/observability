@@ -56,7 +56,7 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "delivery.build": "tsdown",
+    "delivery.build": "holocron run delivery.build --",
     "holocron": "holocron",
     "knowledge.wiki": "holocron run knowledge.wiki --",
     "platform.commitStandards": "holocron run platform.commitStandards --",
