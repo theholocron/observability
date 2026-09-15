@@ -6,7 +6,7 @@ const config: KnipConfig = {
 			// subpath entries (src/core.ts, /logger.ts, /errors.ts, /analytics.ts,
 			// /index.ts) are discovered from the package.json `exports` map;
 			// commitlint.config.ts / vitest.config.ts by Knip plugins
-			entry: ["holocron.config.ts", "src/**/*.test.ts"],
+			entry: ["holocron.config.ts", "astromech.config.ts", "src/**/*.test.ts"],
 			project: ["src/**/*.ts", "*.config.ts"],
 			// astro.config.ts is the docs build config, not an Astro workspace — disable plugin
 			astro: false,
@@ -25,6 +25,8 @@ const config: KnipConfig = {
 		"@theholocron/lint-staged-config",
 		// loaded at runtime by the holocron plugin system — not a static import
 		"@theholocron/holocron-plugin-github",
+		"@theholocron/holocron-plugin-cloudflare",
+		"@theholocron/holocron-plugin-fern",
 		// skills referenced as strings in holocron.config.ts — no static import for Knip to trace
 		"@theholocron/skills",
 		// binary tools — invoked via CLI or hooks, not module imports
