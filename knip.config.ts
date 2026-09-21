@@ -31,6 +31,9 @@ const config: KnipConfig = {
 		"@theholocron/skills",
 		// binary tools — invoked via CLI or hooks, not module imports
 		"sort-package-json",
+		// invoked via node_modules/.bin/turbo (holocron run's own resolveBin())
+		// once turbo.json exists — never a module import for Knip to trace
+		"turbo",
 		// used by Astro's React integration — Knip can't trace the dynamic import
 		"@astrojs/react",
 		// Pino transport targets referenced as strings in transports.ts
