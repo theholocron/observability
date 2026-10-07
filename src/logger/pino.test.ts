@@ -140,8 +140,11 @@ describe("createPinoInstance", () => {
 	});
 
 	it("uses the Windows null device when process.platform is win32", () => {
+		const { stream } = capture();
 		const platformSpy = vi.spyOn(process, "platform", "get").mockReturnValue("win32");
-		const destinationSpy = vi.spyOn(pino, "destination");
+		const destinationSpy = vi
+			.spyOn(pino, "destination")
+			.mockReturnValue(stream as unknown as ReturnType<typeof pino.destination>);
 		createPinoInstance({ ...baseInput, consoleOutput: false });
 		expect(destinationSpy).toHaveBeenCalledWith({ dest: "\\\\.\\NUL", sync: false });
 		platformSpy.mockRestore();
