@@ -139,6 +139,15 @@ describe("createPinoInstance", () => {
 		spy.mockRestore();
 	});
 
+	it("uses the Windows null device when process.platform is win32", () => {
+		const platformSpy = vi.spyOn(process, "platform", "get").mockReturnValue("win32");
+		const destinationSpy = vi.spyOn(pino, "destination");
+		createPinoInstance({ ...baseInput, consoleOutput: false });
+		expect(destinationSpy).toHaveBeenCalledWith({ dest: "\\\\.\\NUL", sync: false });
+		platformSpy.mockRestore();
+		destinationSpy.mockRestore();
+	});
+
 	it("consoleOutput: false + Axiom wired → does not route to a null destination", () => {
 		const spy = vi.spyOn(pino, "destination");
 		createPinoInstance({
