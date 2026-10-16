@@ -98,6 +98,8 @@ that builds a real Pino logger from flooding test output, mock `/logger` from a
 vitest setup file with `silenceLogger`:
 
 ```ts
+import { vi } from "vitest";
+
 vi.mock("@theholocron/observability/logger", async (importOriginal) => {
   const { silenceLogger } = await import("@theholocron/observability/testing");
   return silenceLogger(await importOriginal());

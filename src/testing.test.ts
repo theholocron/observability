@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { NoopLogger } from "./core.js";
 import { fakeAnalyticsSink, fakeErrorSink, fakeLogger, silenceLogger } from "./testing.js";
@@ -79,5 +79,16 @@ describe("silenceLogger", () => {
 		const other = () => "kept";
 		const silenced = silenceLogger({ createLogger: () => "real", other });
 		expect(silenced.other).toBe(other);
+	});
+
+	it("keeps returning a silent logger after vitest resets mocks", () => {
+		const silenced = silenceLogger({ createLogger: () => "real" });
+		vi.resetAllMocks();
+		expect(silenced.createLogger().logger).toBeInstanceOf(NoopLogger);
+	});
+
+	it("accepts the same optional config as the real createLogger", () => {
+		const silenced = silenceLogger({ createLogger: () => "real" });
+		expect(silenced.createLogger({ level: "debug" }).runId).toBe("00000000-0000-4000-8000-000000000000");
 	});
 });
