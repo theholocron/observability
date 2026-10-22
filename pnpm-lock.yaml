@@ -301,6 +301,9 @@ importers:
       tsdown:
         specifier: "catalog:"
         version: 0.23.0(oxc-resolver@11.24.2)(tsx@4.23.12)(typescript@5.9.3)
+      turbo:
+        specifier: ^2.10.12
+        version: 2.11.2
       typescript:
         specifier: "catalog:"
         version: 5.9.3
@@ -2899,6 +2902,42 @@ packages:
         optional: true
       playwright:
         optional: true
+
+  "@turbo/darwin-64@2.11.2":
+    resolution:
+      { integrity: sha512-0pGfE4Lpxrbd+6gUD9z025Tn4z9uMaSNZ3VX0H/hkUPZkjY5xrCa1NfTqocs09NM5NiYE3wEVcoYBadrhayRCA== }
+    cpu: [x64]
+    os: [darwin]
+
+  "@turbo/darwin-arm64@2.11.2":
+    resolution:
+      { integrity: sha512-Ub7hTbu0bPSiW156ciuLCexG5/SfuZM/QWeBBh9o8P4XyKiZwKqubT6Y9DdJjdp4ZY2wS47Prdl06Xxzt0q6zw== }
+    cpu: [arm64]
+    os: [darwin]
+
+  "@turbo/linux-64@2.11.2":
+    resolution:
+      { integrity: sha512-8ipdmgmvSomfQ8E9afUsefO+BLO6QMW7srrHqMOCXD3BPX4FlYqqWAJY1GvbQotZMWKzNohdVkevrUYM6ZzYKA== }
+    cpu: [x64]
+    os: [android, linux]
+
+  "@turbo/linux-arm64@2.11.2":
+    resolution:
+      { integrity: sha512-tsftYXAzgc+GdosqyRP8+Zzk2evJ8ej7Otal7/DU+6GVekVZ3kqM/z7zlGuF4TSHeetWxX04KN1I64LkmvYzgg== }
+    cpu: [arm64]
+    os: [android, linux]
+
+  "@turbo/windows-64@2.11.2":
+    resolution:
+      { integrity: sha512-p5LDVcGmC8W6FCrJPehr1t0ZvYqM8xvG3Va+LkwtDMK3Rl0NhSsJOYbYZVBfMbkm+9RKcCvekFCbSVtQ9Eyuqg== }
+    cpu: [x64]
+    os: [win32]
+
+  "@turbo/windows-arm64@2.11.2":
+    resolution:
+      { integrity: sha512-u0M3m1aXo9lpDM/2iQhxlGzgWjHFq/MC4TqHn1YAvxk8g1wGtzRB2QBx/SLqRChhPhC29mzaB8eLcxKh/pcM1g== }
+    cpu: [arm64]
+    os: [win32]
 
   "@tybys/wasm-util@0.10.3":
     resolution:
@@ -6530,6 +6569,11 @@ packages:
       { integrity: sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg== }
     engines: { node: ">=0.6.11 <=0.7.0 || >=0.7.3" }
 
+  turbo@2.11.2:
+    resolution:
+      { integrity: sha512-s0GhnWXlAAN+wb2GRMQxnZgFweRWTAceRWW/4Lk9iHj7QuLZMjDxQQqu+Xoh7Nckuy8UiSim520w6yqP2+ertw== }
+    hasBin: true
+
   type-check@0.4.0:
     resolution:
       { integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew== }
@@ -9105,6 +9149,24 @@ snapshots:
       vitest: 4.1.11(@opentelemetry/api@1.9.1)(@types/node@26.2.0)(@vitest/coverage-v8@4.1.11)(vite@8.3.0(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))
     optionalDependencies:
       "@vitest/coverage-v8": 4.1.11(vitest@4.1.11)
+
+  "@turbo/darwin-64@2.11.2":
+    optional: true
+
+  "@turbo/darwin-arm64@2.11.2":
+    optional: true
+
+  "@turbo/linux-64@2.11.2":
+    optional: true
+
+  "@turbo/linux-arm64@2.11.2":
+    optional: true
+
+  "@turbo/windows-64@2.11.2":
+    optional: true
+
+  "@turbo/windows-arm64@2.11.2":
+    optional: true
 
   "@tybys/wasm-util@0.10.3":
     dependencies:
@@ -12264,6 +12326,15 @@ snapshots:
       fsevents: 2.3.3
 
   tunnel@0.0.6: {}
+
+  turbo@2.11.2:
+    optionalDependencies:
+      "@turbo/darwin-64": 2.11.2
+      "@turbo/darwin-arm64": 2.11.2
+      "@turbo/linux-64": 2.11.2
+      "@turbo/linux-arm64": 2.11.2
+      "@turbo/windows-64": 2.11.2
+      "@turbo/windows-arm64": 2.11.2
 
   type-check@0.4.0:
     dependencies:

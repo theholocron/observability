@@ -45,6 +45,18 @@ export class PinoLogger implements Logger {
 		return new PinoLogger(this.#pino.child(bindings));
 	}
 
+	/**
+	 * Wraps Pino's own callback-based `flush()` — for a worker-thread
+	 * transport (Axiom) this sends a `flushSync` message to the worker and
+	 * waits for its ack; for a plain destination (no transport) Pino resolves
+	 * it immediately. See {@link Logger.flush}'s own doc for why this exists.
+	 */
+	flush(): Promise<void> {
+		return new Promise((resolve, reject) => {
+			this.#pino.flush((err) => (err ? reject(err) : resolve()));
+		});
+	}
+
 	#emit(level: LogLevel, objOrMsg: Record<string, unknown> | string, msg?: string): void {
 		if (typeof objOrMsg === "string") this.#pino[level](objOrMsg);
 		else this.#pino[level](objOrMsg, msg);
@@ -69,6 +81,23 @@ export interface CreatePinoInstanceInput {
 	 * output synchronously; never set in production.
 	 */
 	destination?: DestinationStream;
+	/**
+	 * `false` suppresses all human-visible console output regardless of
+	 * `ci`/`tty`/level — Axiom (if wired) is unaffected. See
+	 * `buildTransport`'s doc for the full behavior matrix.
+	 */
+	consoleOutput?: boolean;
+}
+
+/**
+ * Platform-appropriate "write nowhere" destination. Used only when the
+ * caller explicitly suppressed console output (`consoleOutput: false`) and
+ * no other transport (Axiom) is wired either — the one case where falling
+ * back to a bare `pino(options)` would be wrong, since Pino's own default
+ * with no transport configured is raw NDJSON to stdout, not silence.
+ */
+function nullDestination(): DestinationStream {
+	return pino.destination({ dest: process.platform === "win32" ? "\\\\.\\NUL" : "/dev/null", sync: false });
 }
 
 /**
@@ -94,9 +123,14 @@ export function buildPinoOptions(input: CreatePinoInstanceInput): LoggerOptions 
 
 /**
  * Construct the underlying Pino instance. Writes to `destination` when one is
- * supplied (tests), otherwise to the transports {@link buildPinoOptions} wired.
+ * supplied (tests), to a null destination when the caller explicitly
+ * suppressed console output and no transport ended up wired (nothing else to
+ * write to — see {@link nullDestination}), otherwise to the transports
+ * {@link buildPinoOptions} wired.
  */
 export function createPinoInstance(input: CreatePinoInstanceInput): PinoInstance {
 	const options = buildPinoOptions(input);
-	return input.destination ? pino(options, input.destination) : pino(options);
+	if (input.destination) return pino(options, input.destination);
+	if (input.consoleOutput === false && !options.transport) return pino(options, nullDestination());
+	return pino(options);
 }
