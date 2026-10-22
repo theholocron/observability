@@ -3,7 +3,6 @@
 <!-- holocron:description -->
 
 Logging, error tracking, and analytics — one interface, swappable backends.
-
 <!-- /holocron:description -->
 
 <!-- holocron:installation -->
@@ -99,14 +98,10 @@ full API.
 
 <!-- holocron:development -->
 
-| Script               | Command                  |
-| -------------------- | ------------------------ |
-| `pnpm build`         | `tsdown`                 |
-| `pnpm lint`          | `holocron run lint`      |
-| `pnpm test`          | `holocron run test`      |
-| `pnpm test:coverage` | `vitest run --coverage`  |
-| `pnpm typecheck`     | `holocron run typecheck` |
-| `pnpm audit`         | `knip`                   |
+| Script               | Command                 |
+| -------------------- | ----------------------- |
+| `pnpm build`         | `tsdown`                |
+| `pnpm test:coverage` | `vitest run --coverage` |
 
 <!-- /holocron:development -->
 
